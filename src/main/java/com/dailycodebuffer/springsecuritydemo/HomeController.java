@@ -6,12 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.dailycodebuffer.springsecuritydemo.models.ContentModel;
 
 @RestController
 
@@ -20,6 +23,8 @@ public class HomeController {
 	private CustomUserDetailsService userDetailsService;
 	@Autowired
 	private PasswordEncoder passwordEncoder;
+	@Autowired
+	private ContentService contentService;
 
 	@GetMapping("/test")
 	public ModelAndView test() {
@@ -27,7 +32,19 @@ public class HomeController {
 		modelAndView.setViewName("/fragments/header.html");
 		return modelAndView;
 	}
-	
+
+	@GetMapping("/questions/{pathVariable}")
+	public ModelAndView questions(@PathVariable String pathVariable) {
+		// pass url to database to get the page content
+		ContentModel contentModel = contentService.getContent(pathVariable);
+
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("/website/index.html");
+		modelAndView.addObject("content", contentModel);
+		// return the view with the data
+		return modelAndView;
+	}
+
 	@GetMapping("/")
 	public ModelAndView index() {
 		ModelAndView modelAndView = new ModelAndView();

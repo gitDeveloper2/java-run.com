@@ -60,6 +60,6 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) throws Exception {
         web
                 .ignoring()
-                .antMatchers("/css/**","/webjars/**","/js/**","https://cdn.jsdelivr.net/**","/logincss/**");
+                .antMatchers("/resources/**","/webjars/**","https://**");
     }
 }
