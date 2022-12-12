@@ -22,7 +22,6 @@ private CustomUserDetailsService userDetailsService;
 private PasswordEncoder passwordEncoder;
 	@GetMapping("/")
 	public ModelAndView index () {
-		System.out.print("boolean");
 	    ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("index.html");
 	    return modelAndView;
@@ -40,7 +39,6 @@ private PasswordEncoder passwordEncoder;
 
     @GetMapping("/login")
     public ModelAndView login(){
-    	System.out.print("login called");
 	    ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName("login.html");
 	    return modelAndView;
@@ -49,13 +47,12 @@ private PasswordEncoder passwordEncoder;
 
     @GetMapping("/register")
     public ModelAndView register(){
-    	System.out.print("register called");
 	    ModelAndView modelAndView = new ModelAndView();
-	    modelAndView.setViewName("register.html");
+	    modelAndView.setViewName("login.html");
 	    return modelAndView;
     }
    @RequestMapping(value = "/adduser", method = {RequestMethod.POST})
-    public void addUser(@RequestParam Map<String, String> auth){
+    public ModelAndView addUser(@RequestParam Map<String, String> auth){
 	   String username=auth.get("username");
 	   String password=auth.get("password");
 	   
@@ -64,6 +61,10 @@ private PasswordEncoder passwordEncoder;
 	   user.setPassword(passwordEncoder.encode(password));
 	   user.setRole("USER");
     	userDetailsService.createUser(user);
+    	
+    	 ModelAndView modelAndView = new ModelAndView();
+ 	    modelAndView.setViewName("login.html");
+ 	    return modelAndView;
     	
     }
     
