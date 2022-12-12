@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<head>
+<div th:replace="fragments/header :: header-head"></div>
+
+</head>
+
+<body>
+	<div th:insert="fragments/header :: header"></div>
+
+	<div th:insert="fragments/content :: content"></div>
+
+
+	<div th:insert="fragments/footer :: footer"></div>
+		<script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.sticky.js"></script>
+    <script src="js/main.js"></script>
+</body>
+<html>
