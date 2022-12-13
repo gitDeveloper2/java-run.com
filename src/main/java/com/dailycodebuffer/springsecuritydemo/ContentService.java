@@ -12,7 +12,12 @@ public class ContentService {
 	private ContentRepository contentrepository;
 
 	public ContentModel getContent(String path) {
-		ContentModel contentModel = contentrepository.findByUrl(path);
+		ContentModel contentModel=null;
+		try {
+		 contentModel= contentrepository.findByUrl(path);
+		}catch(Exception e) {
+			throw new IllegalArgumentException("Page not found");
+		}
 		return contentModel;
 
 	}

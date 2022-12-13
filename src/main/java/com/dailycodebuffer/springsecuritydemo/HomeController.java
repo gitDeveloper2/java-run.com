@@ -29,7 +29,7 @@ public class HomeController {
 	@GetMapping("/test")
 	public ModelAndView test() {
 		ModelAndView modelAndView = new ModelAndView();
-		modelAndView.setViewName("/fragments/header.html");
+		modelAndView.setViewName("/fragments/sidebar.html");
 		return modelAndView;
 	}
 

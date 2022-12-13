@@ -9,22 +9,19 @@
 </head>
 
 <body>
+
 	<div th:insert="fragments/header :: header"></div>
-		  <div th:insert="fragments/sidebar :: sidebar"></div>
-	
-	<div th:insert="fragments/content :: content">
-	
-	
-	
+
+	<div class="row ">
+	<div class="col-sm-4 col-md-3 sidebar ">
+	<div th:insert="fragments/sidebar :: sidebar"></div>
 	</div>
+	<div class="col-sm-8 col-md-9 sidebar">
+		<div th:insert="fragments/content :: content"></div>
+</div>
 
-
+	</div>
 	<div th:insert="fragments/footer :: footer"></div>
-	<script src="/resources/js/jquery-3.3.1.min.js"></script>
-	<script src="/resources/js/popper.min.js"></script>
-	<script src="/resources/js/bootstrap.min.js"></script>
-	<script src="/resources/js/jquery.sticky.js"></script>
-	<script src="/resources/js/main.js"></script>
-	<script src="/resources/js/sidebar-main.js"></script>
+
 </body>
 <html>
