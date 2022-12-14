@@ -6,11 +6,11 @@
 </head>
 <body>
 	<div th:fragment="content">
-	
+	<div class="container">
 <!--paste content-->
 <div class="card" >
   <div class="card-body">
-    <h5 class="card-title">Question Topic</h5>
+    <h5 class="card-title" th:text="${content.Title}"></h5>
     <h6 class="card-subtitle mb-2 text-muted">question subtitle</h6>
     <p class="card-text" th:text="${content.content}" >Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="card-link">Card link</a>
@@ -20,7 +20,7 @@
 
 
 <!--end of paste content-->
-
+</div>
 	</div>
 
 </body>

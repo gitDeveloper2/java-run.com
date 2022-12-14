@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="https://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<head>
+<div th:replace="fragments/admin/header :: header-head"></div>
+
+</head>
+
+<body>
+
+	<div th:insert="fragments/admin/header :: header"></div>
+
+	<div class="row ">
+	<div class="col-sm-4 col-md-3 sidebar ">
+	<div th:insert="fragments/admin/sidebar :: sidebar"></div>
+	</div>
+	<div class="col-sm-8 col-md-9 sidebar">
+		<div th:insert="fragments/admin/content :: content"></div>
+</div>
+
+	</div>
+	<div th:insert="fragments/admin/footer :: footer"></div>
+
+</body>
+<html>

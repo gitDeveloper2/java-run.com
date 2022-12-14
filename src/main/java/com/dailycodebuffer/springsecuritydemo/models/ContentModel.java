@@ -22,6 +22,16 @@ public class ContentModel {
     private String content;
     @Column(name = "published")
     private String published;
+    @Column(name = "Title")
+    private String Title;
+    
+    
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
 	public String getUrl() {
 		return url;
 	}
@@ -31,12 +41,13 @@ public class ContentModel {
 	public ContentModel() {
 		
 	}
-	public ContentModel(Long id, String content, String published, String url) {
+	public ContentModel(Long id, String content, String published, String url, String title) {
 		super();
 		this.id = id;
 		this.content = content;
 		this.published = published;
 		this.url=url;
+		this.Title=title;
 	}
 	public Long getId() {
 		return id;
@@ -58,8 +69,10 @@ public class ContentModel {
 	}
 	@Override
 	public String toString() {
-		return "ContentModel [id=" + id + ", content=" + content + ", published=" + published + "]";
+		return "ContentModel [id=" + id + ", url=" + url + ", content=" + content + ", published=" + published
+				+ ", Title=" + Title + "]";
 	}
+	
    
 
 

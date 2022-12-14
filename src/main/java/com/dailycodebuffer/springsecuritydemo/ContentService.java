@@ -1,5 +1,8 @@
 package com.dailycodebuffer.springsecuritydemo;
 
+import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,9 +25,23 @@ public class ContentService {
 
 	}
 	
+	public List<ContentModel> getAll() {
+		return contentrepository.findAll();
+		
+
+	}
+	
 	public void saveContent(ContentModel contentModel) {
 		contentrepository.save(contentModel);
 		
 
+	}
+	
+	public void delete(Long id) {
+		Optional<ContentModel> contentModel=contentrepository.findById(id);
+		if(contentModel!=null) {
+			contentrepository.deleteById(id);
+		}
+		
 	}
 }
